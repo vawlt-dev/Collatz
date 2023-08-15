@@ -2,24 +2,32 @@
 #include <unordered_map>
 #include <cstdint>
 #include <cstdlib>
-#include <time.h>
+#include <random>
+#include <ctime>
+#include <cmath>
+
 
 using namespace std;
 
 unordered_map<uint64_t, uint64_t> stepsMap; // Map to store numbers and their respective step counts
-
+int getRandomNumber(int minValue, int maxValue);
 uint64_t steps(uint64_t j);
 uint64_t findNumberWithSteps(uint64_t k);
 
 int bigCounter = 0;
+
+bool isFast = false; // change to true if you want to find ANY number with target steps quickly, probably won't give you the smallest
 
 int main() {
     uint64_t targetSteps = 0;  // Change this to the desired number of steps
     cout << "Enter target steps: " << endl;
     cin >> targetSteps;
     uint64_t result = findNumberWithSteps(targetSteps);
-    cout << "The smallest number with " << targetSteps << " steps is: " << result << endl;
-    cout << "BLAH!" << endl;
+    if(isFast) {
+        cout << "The smallest number with " << targetSteps << " steps is: " << result << endl;
+    } else {
+        cout << "One of the numbers with " << targetSteps << " steps is: " << result << endl;
+    }
     return 0;
 }
 
@@ -60,7 +68,19 @@ uint64_t findNumberWithSteps(uint64_t targetSteps) {
         if (numSteps == targetSteps) {
             return num;
         }
-        num+=rand();
+        if(isFast) {
+            num+=getRandomNumber(1,fabs(targetSteps-bigCounter));
+        } else {
+            num++;
+        }
     }
     
+}
+
+int getRandomNumber(int minValue, int maxValue) {
+    std::random_device rd;  // Create a random_device to generate a seed
+    std::mt19937 gen(rd()); // Use the seed from random_device for the Mersenne Twister engine
+    std::uniform_int_distribution<int> distribution(minValue, maxValue); // Define the distribution
+
+    return distribution(gen); // Generate and return a random number within the specified range
 }
