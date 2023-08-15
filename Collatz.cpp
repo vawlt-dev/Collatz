@@ -40,7 +40,7 @@ uint64_t steps(uint64_t n) {
         if (n%2==0) {            
             n/=2;
             // cout << "Divide" << endl;
-            // cout << n << endl;
+            // cout << n << endl;fgsf
             } else {
             n = (n*3)+1;
             // cout << "Multiply" << endl;
