@@ -1,1 +1,0 @@
-This is a calculator for the collatz conjecture, it finds the lowest number for any given number of steps.
