@@ -19,6 +19,7 @@ int main() {
     cin >> targetSteps;
     uint64_t result = findNumberWithSteps(targetSteps);
     cout << "The smallest number with " << targetSteps << " steps is: " << result << endl;
+    cout << "BLAH!" << endl;
     return 0;
 }
 
