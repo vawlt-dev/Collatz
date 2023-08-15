@@ -24,9 +24,9 @@ int main() {
     cin >> targetSteps;
     uint64_t result = findNumberWithSteps(targetSteps);
     if(isFast) {
-        cout << "The smallest number with " << targetSteps << " steps is: " << result << endl;
-    } else {
         cout << "One of the numbers with " << targetSteps << " steps is: " << result << endl;
+    } else {
+        cout << "The smallest number with " << targetSteps << " steps is: " << result << endl;
     }
     return 0;
 }
