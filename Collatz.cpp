@@ -16,7 +16,7 @@ uint64_t findNumberWithSteps(uint64_t k);
 
 int bigCounter = 0;
 
-bool isFast = false; // change to true if you want to find ANY number with target steps quickly, probably won't give you the smallest
+bool isFast = true; // change to true if you want to find ANY number with target steps quickly, probably won't give you the smallest
 
 int main() {
     uint64_t targetSteps = 0;  // Change this to the desired number of steps
@@ -81,6 +81,6 @@ int getRandomNumber(int minValue, int maxValue) {
     std::random_device rd;  // Create a random_device to generate a seed
     std::mt19937 gen(rd()); // Use the seed from random_device for the Mersenne Twister engine
     std::uniform_int_distribution<int> distribution(minValue, maxValue); // Define the distribution
-
+    std::cout << "Some words" << endl;
     return distribution(gen); // Generate and return a random number within the specified range
 }
